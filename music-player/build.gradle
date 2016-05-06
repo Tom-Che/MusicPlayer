@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.example.che.myapplication"
+        minSdkVersion 18
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true//应用超过65K限制设置
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.3.0'//android v7 支持
+    compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.4'//android 图片管理器支持
+
+//    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'//hellocharts图表支持
+
+    //jackson支持
+    compile 'com.fasterxml.jackson.core:jackson-core:2.5.1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
+
+    compile 'com.google.guava:guava:17.0'//谷歌基础类库支持
+
+    compile 'com.android.support:multidex:1.0.0'//超出65K限制支持
+}
